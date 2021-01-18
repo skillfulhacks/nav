@@ -4,7 +4,7 @@
 from setuptools import setup
 
 NAME = "xv"
-URL = "NONE"
+URL = "https://github.com/skillfulhacks/xv"
 with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
     
