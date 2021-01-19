@@ -33,6 +33,7 @@ class UpdateYaml:
             'gen_config':
                 {
                 'rootdir': root_dir
+                'os': os.name
                 },
                 
             'internal':
