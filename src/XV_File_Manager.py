@@ -1,14 +1,29 @@
+# -*- coding: utf-8 -*-
+#!/usr/bin/env python3
+
 import tkinter as tk
 import os
 
-BACE_DIR = os.getcwd()
+"""---IMPORTANT VARIABLES---
 
+BACE_PATH <--- The path that this file is placed in
+PLATFORM <--- Users platform
+SLASH <--- The Slash type used in users paths "\\" or "/""
+CWD <--- The set path stands for 'current working directory'
 
+"""
 
-
+BACE_PATH = os.getcwd()
+os.chdir(".config")
+PLATFORM = open("PLATFORM.ini","r").read()
+CWD = open("SETDIR.ini","r").read()
+if PLATFORM == "Win":
+    SLASH = "\\"
+else:
+    SLASH = "/"
 
 # COMMANDS_DIR AND LIST_OF_COMMANDS
-COMMANDS_DIR = f"{BACE_DIR}{SLASH}.commands"
+COMMANDS_DIR = f"{BACE_PATH}{SLASH}.commands"
 os.chdir(COMMANDS_DIR)
 LIST_OF_COMMANDS = os.listdir(COMMANDS_DIR)
 
@@ -16,7 +31,7 @@ LIST_OF_COMMANDS = os.listdir(COMMANDS_DIR)
 gui = tk.Tk()
 gui.geometry('500x400')
 gui.title("XV File Manager")
-gui.iconbitmap(f'{BACE_DIR}{SLASH}.images{SLASH}XVimg.ico')
+gui.iconbitmap(f'{BACE_PATH}{SLASH}.images{SLASH}XVimg.ico')
 
 # Create a Entrybox with CWD inserted
 set_dir_label = tk.Label(gui,text="set directory: ",font="monospace 8").grid(row=0,column=0)
