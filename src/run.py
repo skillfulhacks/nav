@@ -4,7 +4,7 @@ import yaml
 from XV_File_Manager import MainFunc
 
 ### Load Config File ###
-CONFIGPATH = ".config/xvrc.yaml"
+CONFIGPATH = "xvrc.yaml"
 
 with open(CONFIGPATH) as file:
     CFGFILE = yaml.load(file, Loader=yaml.FullLoader)
