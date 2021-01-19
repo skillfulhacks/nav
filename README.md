@@ -1,7 +1,7 @@
-Name
+XV File Manager
 ====
 
-Sec1
+About
 ----
 
 words  
