@@ -6,7 +6,7 @@ Created on Tue Jan 19 08:51:35 2021
 @author: clarence
 """
 import yaml
-import <<<ADD YOU MODULE HERE>>>
+from <<<ADD YOU MODULE HERE>>> import <<ADD YOUR FUNCTION HERE>>>
 
 ### Load Config File ###
 CONFIGPATH = "xvrc.yaml"
@@ -20,4 +20,4 @@ if CFGFILE["internal"]["cfg_file_built"] == 0:
     UpdateYaml("xvrc.yaml")
     
     
-<<<YOU MODULE>>>(CFGFILE)
+<<<YOUR FUNCTION>>>(CFGFILE)
