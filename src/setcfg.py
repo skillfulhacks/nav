@@ -52,6 +52,6 @@ class UpdateYaml:
             
     
     
-        with open(root_dir + "/navrc.yaml", 'w') as file:
+        with open(root_dir + "/xvrc.yaml", 'w') as file:
             dump = yaml.dump(raw_cfg, file)
         print("made config file")
