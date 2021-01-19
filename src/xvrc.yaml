@@ -1,1 +1,6 @@
 
+gen_config:
+commands:
+  names:
+  paths:
+start_up_commands: null
