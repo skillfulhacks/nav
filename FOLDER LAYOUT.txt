@@ -1,8 +1,0 @@
-MAIN FOLDER---|--->XV File Manager.py(Mainfile)
-              |--->FOLDER ".commands"---|--->ExampleFolder(Elevator)---|--->Elevator.py
-              |                                                        |--->Description.txt
-              |--->FOLDER ".config"
-              |--->FOLDER ".data"
-              |--->FOLDER ".images"
-              |
-              |
