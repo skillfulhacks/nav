@@ -62,6 +62,9 @@ class XVFiles():
         
         self.tkcommand_frame = ScrolledFrame(self.tkroot)
         self.tkcommand_frame.grid(column=0, row=0)
+          
+          # Stop window resizability
+        self.tkroot.resizable(False,False)
         
         # Creates Console
         self.tkconsole_frame = tk.Frame(self.tkroot)
