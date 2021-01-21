@@ -13,4 +13,4 @@ def func(root, *args, **kwargs):
             root["tkconsole"].insert("end", f"\nFile: {item}")
     root["tkconsole"].insert("end","Done!")
             
-doc = """Lists CWD"""
+doc = """This lists all files in XV's current set directory"""
