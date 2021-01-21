@@ -57,14 +57,11 @@ class XVFiles():
         
         # Create a tkinter screen named self.tkroot
         self.tkroot = tk.Tk()
-        self.tkroot.resizeable(False, False)
         self.tkroot.title("XV File Manager")
+        self.tkroot.resizable(False, False)
         
         self.tkcommand_frame = ScrolledFrame(self.tkroot)
         self.tkcommand_frame.grid(column=0, row=0)
-          
-          # Stop window resizability
-        self.tkroot.resizable(False,False)
         
         # Creates Console
         self.tkconsole_frame = tk.Frame(self.tkroot)
@@ -75,25 +72,30 @@ class XVFiles():
 
         # Create a Entrybox with CWD inserted
         tk.Label(self.tkcommand_frame.interior, text="set directory: ",font="monospace 8").grid(row=0,column=0)
-        set_dir_entry = create_textbox(self.tkcommand_frame.interior, [self.root_path], 0, 1, font="monospace 8", width=60)
-    
-        tk.Label(self.tkcommand_frame.interior, text="Args:",font="monospace 8").grid(row=1,column=0)
-        self.tkargs_combobox = create_textbox(self.tkcommand_frame.interior, [""], 1, 1, font="monospace 8", width=60)
+        set_dir_entry = create_textbox(self.tkcommand_frame.interior, [self.root_path], font="monospace 8", width=60)
+        set_dir_entry.grid(row=0, column=1, columnspan=3)
+        
+        tk.Label(self.tkcommand_frame.interior, text="Command",font="monospace 16").grid(row=1, column=0, columnspan=2, sticky="w")
+        tk.Label(self.tkcommand_frame.interior, text="Args",font="monospace 16").grid(row=1, column=2, columnspan=2, sticky="ew")
+
+        
         # Main Button Loop
         for i, command in enumerate(self.command_files):
-            tk.Label(self.tkcommand_frame.interior,text=command,font="monospace 10",fg="darkblue").grid(row=2 + i,column=0,sticky="nswe")
-            tk.Button(self.tkcommand_frame.interior,text=f"Run {command}", font="monospace 9", command=lambda x=command:self.run_command(x)).grid(row=2 + i,column=1 ,sticky="nswe")
+            args_entry = create_textbox(self.tkcommand_frame.interior, [""], font="monospace 8")
+            args_entry.grid(row=2 + i, column=3, sticky="ew")
+            tk.Button(self.tkcommand_frame.interior,text=f"{command}", font="monospace 9", command=lambda entry=args_entry, x=command:self.run_command(x, entry)
+                      ).grid(row=2 + i, column=0, columnspan=3, sticky="nswe")
             
             
         # self.tkroot mainloop
         self.tkroot.mainloop()
     
-    def run_command(self, command):
+    def run_command(self, command, entry):
         print(command)        
         
         try:
-            self.tkconsole.insert("end", f"\nIN: run_command {command} - ARGS: {self.tkargs_combobox.get()} \nOUT:\n")
-            self.imported_commands[command].func(self.__dict__, *self.tkargs_combobox.get().split(" "))
+            self.tkconsole.insert("end", f"\nIN: run_command {command} - ARGS: {entry.get()} \nOUT:\n")
+            self.imported_commands[command].func(self.__dict__, *entry.get().split(" "))
         except KeyError:
             self.pyconsole.print(f"Invailed Command {command}", level=2)
     
