@@ -1,6 +1,16 @@
 XV File Manager
 ====
 ---
+1.0.1a 01-22-2021   
+---  
+@SkillfulHacks 
+* Changes  
+• Cleaned Up XV_File_Manager Code
+
+* Updated Files:  
+• XV_File_Manager.py (Req),  
+
+---
 1.0.0a 01-22-2021   
 ---  
 @SkillfulHacks 
