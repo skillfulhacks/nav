@@ -4,7 +4,7 @@
 import tkinter as tk
 from tkinter import ttk
 
-def create_textbox(root, values, gs="nswe", **kwargs):
+def create_textbox(root, values,gx, gy, gs="nswe", **kwargs):
         """Creates and Grids A Combobox"""
         box = ttk.Combobox(root, values=values, **kwargs)
         box.grid(row=gx, column=gy, sticky=gs)
