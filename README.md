@@ -28,6 +28,6 @@ XV File Manager
 ---
 0.2.3a 01-22-2021   
 @Pybit   
-• Added the 'sysinfo' command.
-• Changed 'doc' to '\_\_doc\_\_' in command files.
-• Added the 'runfile' command.
+• Added the 'sysinfo' command.  
+• Changed 'doc' to '\_\_doc\_\_' in command files.  
+• Added the 'runfile' command.  
