@@ -10,14 +10,14 @@ def create_textbox(root, values, **kwargs):
         return box
 
 class TKConsole(tk.Frame):
-    def __init__(self, parent, *args, **kwargs):
+    def __init__(self, parent, dovsb=True, *args, **kwargs):
         tk.Frame.__init__(self, parent)
         self.text = tk.Text(self, *args, **kwargs)
         self.vsb = tk.Scrollbar(self, orient="vertical", command=self.text.yview)
         self.hsb = tk.Scrollbar(self, orient="horizontal", command=self.text.xview)
         self.text.configure(yscrollcommand=self.vsb.set)
         self.text.configure(xscrollcommand=self.hsb.set)
-        self.vsb.pack(side="right", fill="y")
+        if dovsb: self.vsb.pack(side="right", fill="y")
         self.hsb.pack(side="bottom", fill="x")
         self.text.pack(side="left", fill="x", expand=True)
 
@@ -28,9 +28,9 @@ class TKConsole(tk.Frame):
         self.get = self.text.get
         self.index = self.text.index
         self.search = self.text.search
-    
-    def _insert(self, pos, text, *args, **kwargs):
-        self.text.insert(pos, "\n" + text, *args, **kwargs)
+        self.bind = self.text.bind
+    def _insert(self, pos, text, sep="\n", *args, **kwargs):
+        self.text.insert(pos, f"{sep}{text}", *args, **kwargs)
         self.text.tag_configure("white", foreground="white")
         self.text.tag_add("white", "1.0", "end")    
         self.text.see("end")
