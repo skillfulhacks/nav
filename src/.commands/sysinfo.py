@@ -7,4 +7,4 @@ def func(root, *args, **kwargs):
     root["tkconsole"].insert("end",f"Current OS:   {pf.system()}\nProcessor:   {pf.processor()}\nMachine:   {pf.machine()}\nArchitecture:   {pf.architecture()}\nNetwork:   {pf.node()}")
     root["tkconsole"].insert("end","Done!")
             
-doc = """Lists divice info."""
+__doc__ = """Lists divice info."""
