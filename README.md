@@ -1,10 +1,13 @@
 XV File Manager
 ====
 
-0.1.0a 01-20-2021  
+---
+0.2.0a 01-20-2021  
 ---  
-@Pybit  
-• Added SETUP_CONSOLE. 
+@Skillfulhacks  
+• Added the Ability to Update Commands.  
+• Added a Basic Tkinter Console With the Ablity to Insert Text.  
+• Added the Command "ls"; Lists CWD.  
 
 ---
 0.2.0a 01-20-2021  
@@ -13,6 +16,12 @@ XV File Manager
 • Added the Ability to Update Commands.  
 • Added a Basic Tkinter Console With the Ablity to Insert Text.  
 • Added the Command "ls"; Lists CWD.  
+
+---
+0.1.0a 01-20-2021  
+---  
+@Pybit  
+• Added SETUP_CONSOLE. 
 
 ---
 0.2.1a 01-20-2021  
