@@ -8,10 +8,9 @@ def func(root, *args, **kwargs):
     for item in os.listdir(root["cwd"]):
         try:
             os.chdir(item)
-            root["tkconsole"].insert("end", f"\nFolder: {item}")
+            root["tkconsole"].insert("end", f"Folder: {item}")
             os.chdir("..")
         except NotADirectoryError:
-            root["tkconsole"].insert("end", f"\nFile: {item}")
-    root["tkconsole"].insert("end","Done!")
+            root["tkconsole"].insert("end", f"File: {item}")
    
             
