@@ -30,3 +30,4 @@ XV File Manager
 @Pybit   
 • Added the 'sysinfo' command.
 • Changed 'doc' to '__doc__' in command files.
+• Added the 'runfile' command.
