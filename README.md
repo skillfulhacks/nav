@@ -42,8 +42,8 @@ XV File Manager
 1.0.0a 01-22-2021   
 ---  
 @SkillfulHacks 
-* New Files (Op) .commands/help.py, (Ne) .commands/run_command.py, (Op) gui_tabs/command_ls.py, (Op) gui_tabs/term_emul.py   
-* Updated Files XV_File_Manager.py, tk_custum_widgets.py  
+* New Files .commands/help.py, (Opt) .commands/run_command.py, (Req) gui_tabs/command_ls.py, (Opt) gui_tabs/term_emul.py (Opt)  
+* Updated Files XV_File_Manager.py (Opt), tk_custum_widgets.py (Opt)  
   
 • Tabs are Now in Seperate Files in the gui_tabs Folder.  
 • Changed tk_custum_widgets Internally.  
