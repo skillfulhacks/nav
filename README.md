@@ -20,7 +20,7 @@ XV File Manager
 • Added the Command "man"; Displays Help for a Selected Command  
 
 ---
-0.2.2a 01-21-2021
-@Pybit
-• Stoped window resizability in the main file.
-• The ls command will now give more information when run.
+0.2.2a 01-21-2021   
+@Pybit   
+• Stoped window resizability in the main file.   
+• The ls command will now give more information when run.   
