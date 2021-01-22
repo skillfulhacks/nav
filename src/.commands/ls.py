@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+__doc__ = """This lists all files in XV's current set directory."""
 
 def func(root, *args, **kwargs):
     import os
@@ -12,6 +13,5 @@ def func(root, *args, **kwargs):
         except NotADirectoryError:
             root["tkconsole"].insert("end", f"\nFile: {item}")
     root["tkconsole"].insert("end","Done!")
-    
-__doc__ = """This lists all files in XV's current set directory."""
+   
             
