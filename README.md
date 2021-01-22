@@ -43,9 +43,9 @@ XV File Manager
 ---  
 @SkillfulHacks   
 • Tabs are Now in Seperate Files in the gui_tabs Folder.  
-* Changed tk_custum_widgets Internally.  
-* Added the Tab "command_ls"; Displays a list of all Non Internal Commands.  
-* Added the Tab "term_emul"; Displays a CLI Interface For Running Commands.  
-* Added the INTERNAL Attribute to Command Files.  
+• Changed tk_custum_widgets Internally.  
+• Added the Tab "command_ls"; Displays a list of all Non Internal Commands.  
+• Added the Tab "term_emul"; Displays a CLI Interface For Running Commands.  
+• Added the INTERNAL Attribute to Command Files.  
 • Added the Command "help"; Runs the "man" Command on all Non-Internal Commands.  
 • Added the Command "run_command"; A Internal Command Use to Run Other Command.  
