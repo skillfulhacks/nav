@@ -54,8 +54,8 @@ XV File Manager
 * New Files:  
 • .commands/help.py (Opt),  
 • .commands/run_command.py (Req),  
-gui_tabs/command_ls.py (Opt),  
-gui_tabs/term_emul.py (Opt)  
+• gui_tabs/command_ls.py (Opt),  
+• gui_tabs/term_emul.py (Opt)  
 
 * Updated Files:  
 • XV_File_Manager.py (Req),  
