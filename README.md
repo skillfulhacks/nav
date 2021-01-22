@@ -41,7 +41,10 @@ XV File Manager
 ---
 1.0.0a 01-22-2021   
 ---  
-@SkillfulHacks   
+@SkillfulHacks 
+* New Files (Op) .commands/help.py, (Ne) .commands/run_command.py, (Op) gui_tabs/command_ls.py, (Op) gui_tabs/term_emul.py   
+* Updated Files XV_File_Manager.py, tk_custum_widgets.py  
+  
 • Tabs are Now in Seperate Files in the gui_tabs Folder.  
 • Changed tk_custum_widgets Internally.  
 • Added the Tab "command_ls"; Displays a list of all Non Internal Commands.  
