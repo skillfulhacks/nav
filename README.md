@@ -6,9 +6,12 @@ XV File Manager
 @SkillfulHacks 
 * Changes  
 • Cleaned Up XV_File_Manager Code
+• Minor Changes to "man" and "ls"
 
 * Updated Files:  
 • XV_File_Manager.py (Req),  
+• .commands/ls.py (Opt),  
+• .commands/man.py (Opt),  
 
 ---
 1.0.0a 01-22-2021   
