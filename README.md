@@ -29,3 +29,4 @@ XV File Manager
 0.2.3a 01-22-2021   
 @Pybit   
 • Added the 'sysinfo' command.
+• Changed 'doc' to '__doc__' in command files.
