@@ -9,27 +9,25 @@ In this Guide "|" means OR
 ---
 (major).(minor).(fix)(a|b) DD-MM-YYYY
 --- # <-- Bold the Above Line
+@Person 1
 * Changes
 • change 1
 • change 2
-.
-.
-.
+...
 • change n
 * New Files
 # Opt = Optional; The Program can Run Without it
 # Req = Required; The Program *can't* Run Without it
 • file 1 ((Opt|Req))
 • file 2 ((Opt|Req))
-.
-.
-.
+...
 • file n ((Opt|Req))
 
 * Updated Files
 • file 1 ((Opt|Req))
 • file 2 ((Opt|Req))
-.
-.
-.
+...
 • file n ((Opt|Req))
+@Person 2
+...
+@Person n
