@@ -3,11 +3,9 @@
 
 import tkinter as tk
 from tkinter import ttk
-
-def create_textbox(root, values,gx, gy, gs="nswe", **kwargs):
+def create_textbox(root, values, **kwargs):
         """Creates and Grids A Combobox"""
         box = ttk.Combobox(root, values=values, **kwargs)
-        box.grid(row=gx, column=gy, sticky=gs)
         box.set(values[0])
         return box
 
@@ -33,7 +31,8 @@ class TKConsole(tk.Frame):
     
     def _insert(self, pos, text, *args, **kwargs):
         self.text.insert(pos, "\n" + text, *args, **kwargs)
-        
+        self.text.tag_configure("white", foreground="white")
+        self.text.tag_add("white", "1.0", "end")    
         self.text.see("end")
 
 class ScrolledFrame(tk.Frame):
