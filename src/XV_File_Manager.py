@@ -38,8 +38,6 @@ class XVFiles():
         
         # Operating System Type
         self.optype = os.name
-        
-        self.chdir(f"{self.root_path}/.config")
         self.slash = "\\" if self.optype == "nt" else "/"
 
         
