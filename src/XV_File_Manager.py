@@ -13,9 +13,22 @@ from console import Console
 
      
 class XVFiles():
+    #%%
     def chdir(self, newdir):
         os.chdir(newdir)
         self.cwd = newdir
+    
+    #%%
+    def import_from_dir(self, dir_path):
+        files = [file.split(".")[0] for file in sorted(os.listdir(dir_path)) if os.path.isfile(f"{dir_path}/{file}")]
+        imported = {}
+        for i, file in enumerate(files):
+            try:
+                imported.update({file: __import__(file)})
+            except FileNotFoundError:
+                self.pyconsole.print(f"invalid command {file}!")
+        return files, imported
+    
     def __init__(self, yaml_cfg):
         #%% setup
         self.pyconsole = Console()
@@ -33,43 +46,29 @@ class XVFiles():
         # COMMANDS_DIR AND LIST_OF_COMMANDS
         self.commands_dir = f"{self.root_path}{self.slash}.commands"
         self.tabs_dir = f"{self.root_path}{self.slash}gui_tabs"
-        # Adds Command Dir to Sys Path. Allowing Import from Non Standerd Paths
-        sys.path.append(self.commands_dir)
-        sys.path.append(self.tabs_dir)
-        
         self.chdir(self.commands_dir)
         
         #%% Importer ###
-        self.command_files = [command.split(".")[0] for command in os.listdir(self.commands_dir) if os.path.isfile(f"{self.commands_dir}/{command}")]
-        self.imported_commands = {}
-        for i, command in enumerate(self.command_files):
-            try:
-                self.imported_commands.update({command: __import__(command)})
-            except FileNotFoundError:
-                self.pyconsole.print(f"invalid command {command}!")
-                
-        #! Sets run_command to the imported run_command
+        # Adds Import Paths to Sys Path. Allowing Imports from Non Standerd Paths
+        sys.path.append(self.commands_dir)
+        sys.path.append(self.tabs_dir)
+        
+        self.command_files, self.imported_commands = self.import_from_dir(self.commands_dir)
+        
+        # Sets run_command to a Custum Var
         try:
             self.run_command = self.imported_commands["run_command"].func
         except KeyError:
             self.pyconsole.print("run_command.py not found exiting", level=3)
             sys.exit()
-        
+            
         ## Imports Tabs
-        self.tabs_files = [tab.split(".")[0] for tab in sorted(os.listdir(self.tabs_dir)) if os.path.isfile(f"{self.tabs_dir}/{tab}")]
-        self.imported_tabs = {}
-        for i, tab in enumerate(self.tabs_files):
-            try:
-                self.imported_tabs.update({tab: __import__(tab)})
-                print(self.imported_tabs)
-            except FileNotFoundError:
-                self.pyconsole.print(f"invalid tab {tab}!")
+        self.tabs_files,  self.imported_tabs = self.import_from_dir(self.tabs_dir)
         
-        #%% Create a tkinter screen named self.tkroot
+        #%%
         #################
         ### GUI START ###
         #################
-        
         self.tkroot = tk.Tk()
         self.tkroot.title("XV File Manager")
         self.tkroot.resizable(False, False)
@@ -98,7 +97,8 @@ class XVFiles():
         # Mainloop
         self.tkroot.mainloop()
 
-    #%%
+
+#%%
 if __name__ == "__main__":
     with open("xvrc.yaml") as file:
         YAMLCFG = yaml.load(file, Loader=yaml.FullLoader)
