@@ -1,3 +1,6 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
 from tk_custum_widgets import TKConsole
 import tkinter as tk
 
@@ -5,6 +8,7 @@ NAME = "CLI Emul"
 
 class Tab(tk.Frame):
     def __init__(self, root, tkroot): 
+        self.root = root
         def tkinputconsole_keyevents(event):
             if event.keysym == "Return":
                 self.tkinputconsole_row += 1
@@ -31,9 +35,14 @@ class Tab(tk.Frame):
         # Left
         self.tkinputconsole_top = TKConsole(self, width=80, height=12, wrap=tk.NONE, font='monospace 10', bg="black", fg="white")
         self.tkinputconsole_top.grid(column=0, row=0, rowspan=50)
+        self.update()
+        
+    def update(self):
+        self.tkinputconsole_top.config(state="normal")
+        self.tkinputconsole_top.delete("end", "end")
         self.tkinputconsole_top.insert("end", f"""/-----------------------------<CLI Emulater>-----------------------------------\\
 |   
-|   PATH: {root["cwd"]}
+|   PATH: {self.root["cwd"]}
 |                                                                              
 |                                                                              
 |                                                                              
@@ -43,3 +52,4 @@ class Tab(tk.Frame):
 |                                                                              
 |                                                                              
 \\------------------------------------------------------------------------------/""", sep="")
+        self.tkinputconsole_top.config(state="disabled")
