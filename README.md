@@ -1,7 +1,7 @@
 XV File Manager
 ====
 ---
-1.1.0a 01-22-2021   
+1.1.0a 01-26-2021   
 ---  
 @SkillfulHacks 
 * Changes  
@@ -28,7 +28,7 @@ XV File Manager
 ---  
 @SkillfulHacks 
 * Changes  
-• Cleaned Up XV_File_Manager Code
+• Cleaned Up XV_File_Manager Code  
 • Minor Changes to "man" and "ls"
 
 * Updated Files:  
