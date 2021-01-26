@@ -1,6 +1,29 @@
 XV File Manager
 ====
 ---
+1.1.0a 01-22-2021   
+---  
+@SkillfulHacks 
+* Changes  
+• Added Configs >> xvrc.yaml  
+• Added the Command "pinternal"; Prints a Internal Var  
+• Added the Command "lsinternal"; Lists All Internal Vars  
+• Added the Command "cd"; Changes Dir  
+• Update the Command "ls"  
+
+* Updated Files:  
+• XV_File_Manager.py (Req),  
+• tk_custum_widgets.py (Req),  
+• xvrc.yaml (Req),  
+• .commands/ls.py (Opt),  
+
+
+* New Files:  
+• .commands/pinternal.py (Opt),  
+• .commands/lsinternal.py (Opt),  
+• .commands/cd.py (Opt),  
+
+---
 1.0.1a 01-22-2021   
 ---  
 @SkillfulHacks 
