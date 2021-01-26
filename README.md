@@ -5,6 +5,7 @@ XV File Manager
 ---  
 @SkillfulHacks 
 * Changes  
+• Added a Update Function to Tab Files, Allowing for Updates After Startup  
 • Added Configs >> xvrc.yaml  
 • Added the Command "pinternal"; Prints a Internal Var  
 • Added the Command "lsinternal"; Lists All Internal Vars  
@@ -16,7 +17,8 @@ XV File Manager
 • tk_custum_widgets.py (Req),  
 • xvrc.yaml (Req),  
 • .commands/ls.py (Opt),  
-
+• gui_tabs/command_ls.py (Req),  
+• gui_tabs/term_emul.py (Opt)  
 
 * New Files:  
 • .commands/pinternal.py (Opt),  
