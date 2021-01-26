@@ -24,17 +24,31 @@ class TKConsole(tk.Frame):
         # expose some text methods as methods on this object
         self.insert = self._insert
         self.delete = self.text.delete
-        self.mark_set = self.text.mark_set
         self.get = self.text.get
-        self.index = self.text.index
-        self.search = self.text.search
         self.bind = self.text.bind
+        self.config = self.text.config
+        self.pprint = self._pprint
+        
     def _insert(self, pos, text, sep="\n", *args, **kwargs):
         self.text.insert(pos, f"{sep}{text}", *args, **kwargs)
         self.text.tag_configure("white", foreground="white")
         self.text.tag_add("white", "1.0", "end")    
-        self.text.see("end")
-
+        self.text.see("end-4c")
+    
+    
+    def _pprint(self, text_raw, suffix="", *args, **kwargs):
+        """Prettier Printing"""
+        text = ""
+        if isinstance(text_raw, list):
+            for item in text_raw:
+                text = f"{text}{item}\n"
+        elif isinstance(text_raw, dict):
+            for key, value in text_raw.items():
+                text = f"{text}{key} - {value}\n"
+        else:
+            text = text_raw
+        self._insert("end", text, *args, **kwargs)
+        
 class ScrolledFrame(tk.Frame):
     # !!! FROM stackoverflow.com !!! #
     """A pure Tkinter scrollable frame that actually works!
