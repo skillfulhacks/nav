@@ -14,27 +14,38 @@ from console import Console
      
 class XVFiles():
     #%%
-    def chdir(self, newdir):
-        os.chdir(newdir)
-        self.cwd = newdir
-    
-    #%%
-    def import_from_dir(self, dir_path):
-        files = [file.split(".")[0] for file in sorted(os.listdir(dir_path)) if os.path.isfile(f"{dir_path}/{file}")]
+    def import_from_dir(self, dir_path, sortlist=None, exclude=[]):
+        """Imports a Dir of Files"""
+        # Sorting is Tempary 
+        files = [file.split(".")[0] for file in os.listdir(dir_path) if os.path.isfile(f"{dir_path}/{file}") and file.split(".")[0] not in exclude]
+        
+        # For Custum Sorting
+        if sortlist != None:
+            sortedfiles = []
+            
+            for i, file in enumerate(files):
+                for sortkey in reversed(sortlist):
+                    if sortkey == file:
+                        sortedfiles.insert(0, file)
+                        files.pop(i)
+                        break
+            else:
+                sortedfiles.extend(files)
+            files = sortedfiles
         imported = {}
         for i, file in enumerate(files):
             try:
                 imported.update({file: __import__(file)})
             except FileNotFoundError:
                 self.pyconsole.print(f"invalid command {file}!")
-        return files, imported
+        return imported
     
     def __init__(self, yaml_cfg):
         #%% setup
         self.pyconsole = Console()
-        self.update_funcs = []
         self.root_path = os.getcwd()
         self.cwd = self.root_path
+        self.cfg = yaml_cfg
         
         # Operating System Type
         self.optype = os.name
@@ -44,15 +55,15 @@ class XVFiles():
         # COMMANDS_DIR AND LIST_OF_COMMANDS
         self.commands_dir = f"{self.root_path}{self.slash}.commands"
         self.tabs_dir = f"{self.root_path}{self.slash}gui_tabs"
-        self.chdir(self.commands_dir)
         
         #%% Importer ###
         # Adds Import Paths to Sys Path. Allowing Imports from Non Standerd Paths
-        sys.path.append(self.commands_dir)
-        sys.path.append(self.tabs_dir)
-        
-        self.command_files, self.imported_commands = self.import_from_dir(self.commands_dir)
-        
+        for plist in self.cfg["startup"]["paths"]:
+            for path in plist:
+                sys.path.insert(0, path)
+    
+                
+        self.imported_commands = self.import_from_dir(self.commands_dir, self.cfg["commands"]["order"], self.cfg["commands"]["exclude"])
         # Sets run_command to a Custum Var
         try:
             self.run_command = self.imported_commands["run_command"].func
@@ -61,12 +72,13 @@ class XVFiles():
             sys.exit()
             
         ## Imports Tabs
-        self.tabs_files,  self.imported_tabs = self.import_from_dir(self.tabs_dir)
+        self.imported_tabs = self.import_from_dir(self.tabs_dir, self.cfg["tabs"]["order"], self.cfg["tabs"]["exclude"])
         
-        #%%
-        #################
+        
+        #%%##############
         ### GUI START ###
-        #################
+        #################'
+        
         self.tkroot = tk.Tk()
         self.tkroot.title("XV File Manager")
         self.tkroot.resizable(False, False)
@@ -76,11 +88,13 @@ class XVFiles():
         self.tkinput_frame_tabs.grid(row=0, column=0)
         
         # Loads in Tabs
+        self.loaded_tabs = []
         for key, item in self.imported_tabs.items():
             loaded_tab = item.Tab(self.__dict__, self.tkinput_frame_tabs)
             loaded_tab.grid(column=0, row=0, rowspan=100)
             self.tkinput_frame_tabs.add(loaded_tab, text=item.NAME)
-
+            self.loaded_tabs.append(loaded_tab)
+            
         #%% Output Frame ###
         self.tkoutput_frame = ttk.Frame(self.tkroot)
         self.tkoutput_frame.grid(row=0, column=1)
@@ -89,7 +103,7 @@ class XVFiles():
         self.tkconsole_frame = tk.Frame(self.tkoutput_frame)
         self.tkconsole_frame.grid(column=1, row=0, rowspan=100)
         
-        self.tkconsole = TKConsole(self.tkconsole_frame, width=80, height=24, wrap=tk.NONE, font='monospace 10', bg="black")
+        self.tkconsole = TKConsole(self.tkconsole_frame, width=80, height=27, wrap=tk.NONE, font='monospace 10', bg="black")
         self.tkconsole.grid(column=0, row=0, rowspan=100)
         
         # Mainloop
