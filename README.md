@@ -1,7 +1,17 @@
 XV File Manager
 ====
 ---
-2.0.0a 01-26-2021   
+2.01a 01-27-2021   
+---  
+@SkillfulHacks 
+* Changes  
+• Minor Changes/Bug Fixes in gui_tabs/file_system.py
+
+* Updated Files:  
+• gui_tabs/file_system.py (Opt)  
+
+---
+2.0.0a 01-27-2021   
 ---  
 @SkillfulHacks 
 * Changes  
