@@ -61,7 +61,8 @@ class Tab(tk.Frame):
         
         def cd(new_dir):
             if os.path.isdir(os.path.join(root["cwd"], new_dir)):
-                root["cwd"] = new_dir
+                root["cwd"] = os.path.join(root["cwd"], new_dir)
+                self.current_dir.set(os.path.join(root["cwd"], new_dir))
                 self.update()
         tk.Frame.__init__(self, tkroot)
         self.root = root
@@ -74,6 +75,7 @@ class Tab(tk.Frame):
         
         tk.Button(self, text="Change Dir", command=lambda: cd(self.current_dir.get())).grid(column=2, row=0, rowspan=1, columnspan=1, sticky="ew")
         tk.Button(self, text="Up Level"  , command=lambda: cd(os.path.dirname(root["cwd"]))).grid(column=3, row=0, rowspan=1, columnspan=1, sticky="ew")
+        tk.Button(self, text="Goto Dir"  , command=lambda: cd(self.meta_data[self.box.curselection()[0]]["path"])).grid(column=2, row=1, rowspan=1, columnspan=1, sticky="ew")
         tk.Button(self, text="Open File" , command=lambda: root["run_command"](root, # Root Standed In Any Command
                                                                                root["loaded_tabs"][CFG.output_tab],  # Display Standerd in Any Command
                                                                                "cat",  # Cat Command Name
