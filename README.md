@@ -1,6 +1,26 @@
 XV File Manager
 ====
 ---
+2.0.0a 01-26-2021   
+---  
+@SkillfulHacks 
+* Changes  
+• Renamed .commands to commands 
+• Overhauled the Way Tabs Were Loaded
+
+* Updated Files:  
+• XV_File_Manager.py (Req),  
+• tk_custum_widgets.py (Req),  
+• gui_tabs/command_ls.py (Req),  
+• gui_tabs/term_emul.py (Req)  
+• !!! ALL FILES IN commands !!! (Req)  
+
+* New Files:  
+• gui_tabs/file_system.py (Opt)  
+• gui_tabs/cmdout_console.py (Req)  
+• commands/cat.py (Opt),  
+
+---
 1.1.0a 01-26-2021   
 ---  
 @SkillfulHacks 
