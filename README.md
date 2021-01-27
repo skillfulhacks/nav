@@ -15,8 +15,8 @@ XV File Manager
 ---  
 @SkillfulHacks 
 * Changes  
-• Renamed .commands to commands 
-• Overhauled the Way Tabs Were Loaded
+• Renamed .commands to commands  
+• Overhauled the Way Tabs Were Loaded  
 
 * Updated Files:  
 • XV_File_Manager.py (Req),  
