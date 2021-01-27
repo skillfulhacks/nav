@@ -93,7 +93,7 @@ class XVFiles():
 
         
         # COMMANDS_DIR AND LIST_OF_COMMANDS
-        self.commands_dir = f"{self.root_path}{self.slash}.commands"
+        self.commands_dir = f"{self.root_path}{self.slash}commands"
         self.tabs_dir = f"{self.root_path}{self.slash}gui_tabs"
         
         #%% Importer ###
