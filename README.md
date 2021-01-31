@@ -5,7 +5,7 @@ XV File Manager
 -----------------  
 @SkillfulHacks 
 * Changes  
-• Added XVSrcipt; A Basic Way to Write Script Files  
+• Added XVScript; A Basic Way to Write Script Files  
 • Added ENV Vars Use $VARNAME to Replace a Arg With the Selected var  
 • Added Internal Vars Use #VARNAME to Replace a Arg With the Selected var  
 • Added Command "cp"; Copies a File  
