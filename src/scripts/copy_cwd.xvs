@@ -1,0 +1,16 @@
+Copys A File From CWD to /home/clarence/copy_cwd_out
+
+@SEP=\n
+@START
+create_env_var src #cwd
+create_env_var dst /home/clarence/copy_cwd_out
+
+echo src: $src \n dst: $dst
+
+cp $src $dst
+
+rm_env_var src
+rm_env_var dst
+
+echo Done
+@END

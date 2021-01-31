@@ -1,0 +1,24 @@
+commands:
+    paths: &command_paths
+        - commands
+    order:
+        - help
+        - ls
+        - cat
+        - cd
+    exclude: [mv]
+    atlases:
+        "?": help
+tabs:
+    paths: &tab_paths
+        - gui_tabs
+    order:
+        - command_ls
+        - file_system
+    
+    exclude: []
+
+startup:
+    paths:
+        - *command_paths
+        - *tab_paths

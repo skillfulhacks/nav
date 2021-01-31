@@ -1,0 +1,12 @@
+
+[] = Optional
+<> = Required
+Sections:
+
+[Discription] A Discription Of The Program
+[@SEP=X] How The Program Seporates Line
+<@START> Start The Program
+Code
+...
+Code
+[@END] Optional
