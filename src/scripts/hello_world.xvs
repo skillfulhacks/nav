@@ -1,0 +1,8 @@
+Prints Hello World
+
+@SEP=\n
+@START
+
+echo Hello World
+
+@END
