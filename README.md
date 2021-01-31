@@ -1,6 +1,33 @@
 XV File Manager
 ====
 ---
+3.0.0a 01-31-2021   
+-----------------  
+@SkillfulHacks 
+* Changes  
+• Added XVSrcipt; A Basic Way to Write Script Files  
+• Added ENV Vars Use $VARNAME to Replace a Arg With the Selected var  
+• Added Internal Vars Use #VARNAME to Replace a Arg With the Selected var  
+• Added Command "cp"; Copies a File  
+• Added Command "mv"; Cuts a File  
+• Added Command "create_env_var"; Creates a ENV Var  
+• Added Command "rm_env_var"; Removes a ENV Var  
+• Added Command "echo"; Prints Lines to Console  
+• Added Command "run_xvs"; Run a Script File  
+
+* Updated Files:  
+• XV_File_Manager.py (Req),  
+• commands/run_command.py (Req),  
+
+* New Files:  
+• commands/cp.py (Opt),  
+• commands/mv.py (Opt),  
+• commands/create_env_var.py (Opt),  
+• commands/remove_env_var.py (Opt),  
+• commands/echo.py (Opt),  
+• commands/run_xvs.py (Opt),  
+
+---
 2.01a 01-27-2021   
 ---  
 @SkillfulHacks 
